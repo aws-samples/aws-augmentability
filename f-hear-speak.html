@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Live transcription and text-to-speech</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://kit.fontawesome.com/692060e681.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style/shoelace.css" />
+        <link rel="stylesheet" href="style/styles.css" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png" />
+        <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
+    </head>
+
+    <body>
+        <div>
+            <a href="index.html" style="color: #000000;">
+                <p style="text-align: left; font-size: 20px;"><i class="fas fa-arrow-left"></i></p>
+            </a>
+
+            <h2 style="text-align: center;">
+                <b>Live transcription and text-to-speech</b>
+            </h2>
+
+            <br />
+            <br />
+
+            <div class="language" style="text-align: center;">
+                <label><b>Select a language: </b></label>
+                <select id="language">
+                    <optgroup label="English">
+                        <option value="en-US">US English</option>
+                        <option value="en-GB">British English</option>
+                        <option value="en-AU">Australian English</option>
+                    </optgroup>
+                    <optgroup label="French">
+                        <option value="fr-FR">French</option>
+                        <option value="fr-CA">Canadian French</option>
+                    </optgroup>
+                    <option value="pt-BR">Brazilian Portuguese</option>
+                    <option value="de-DE">German</option>
+                    <option selected value="it-IT">Italian</option>
+                    <option value="ja-JP">Japanese</option>
+                    <option value="ko-KR">Korean</option>
+                    <option value="zh-CN">Mandarin Chinese (Mainland)</option>
+                    <option value="es-US">US Spanish</option>
+                </select>
+            </div>
+
+            <br />
+        </div>
+        <br />
+
+        <div class="container">
+            <br />
+
+            <div id="transcription-div">
+                <h2 style="text-align: center;">
+                    Listen
+                </h2>
+
+                <div class="controlActions">
+                    <div class="controlButtons">
+                        <a href="#" id="start-button" title="Start listening"><i class="fas fa-microphone"></i></a>
+                        <a href="#" id="stop-button" title="Stop listening"><i class="fas fa-stop"></i></a>
+                    </div>
+                </div>
+
+                <div id="error" class="isa_error"></div>
+
+                <textarea id="transcript" placeholder="The transcription will show up here" rows="10" readonly="readonly"></textarea>
+
+                <div style="text-align: right;">
+                    <button id="reset-button" class="button-l button-secondary" title="Clear Transcription">
+                        Clear
+                    </button>
+                </div>
+            </div>
+
+            <br />
+            <br />
+        </div>
+        <br />
+        <br />
+        <div class="container">
+            <br />
+
+            <h2 style="text-align: center;">
+                Speak
+            </h2>
+
+            <div id="textToSynth" style="text-align: center;">
+                <input size="23" type="text" id="textEntry" placeholder="Enter here what you want to say" />
+                <button class="button-l" id="play-button"><i class="fas fa-play"></i> Say it for me</button>
+
+                <!-- <p id="result"></p>-->
+
+                <br />
+                <br />
+
+                <audio id="audioPlayback" controls autoplay>
+                    <source id="audioSource" type="audio/mp3" src="" />
+                </audio>
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.340.0.min.js"></script>
+        <script src="z-config.js"></script>
+        <script src="dist/main.js"></script>
+    </body>
+</html>

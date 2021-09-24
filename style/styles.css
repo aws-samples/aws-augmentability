@@ -1,0 +1,166 @@
+body {
+    margin: 20px;
+}
+
+#transcript, translated-transcript {
+    margin: 30px 0;
+    white-space: pre-wrap;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:100%; 
+}
+
+#start-button,
+#stop-button, 
+#play-button {
+    margin: 20px 0;
+}
+
+#error {
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.4rem;
+    border-radius: 5px 5px 5px 5px;
+    color: #D8000C;
+    background-color: #FFD2D2;
+    display: none;
+}
+
+.isa_error i {
+    margin: 2px 12px;
+    font-size: 1.5em;
+    vertical-align: middle;
+}
+
+#logo {
+    height: 52px;
+}
+
+#github {
+    fill: #146eb4;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    border: 0;
+    right: 0;
+}
+
+.small-caps {
+    font-variant: small-caps;
+}
+
+.container {
+  background: #fff;
+  border-radius: 10px;
+  display: inline-block;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+}
+
+body {
+  background: #F8F9FB;
+  text-align: center;
+}
+
+textarea { 
+    font-size: 20px; 
+    resize: none;
+
+}
+
+input[type="text"]
+{
+    font-size: 20px;
+}
+
+video
+{
+  width: 100%;
+  opacity:.90;
+  left: 0px;
+  top: 0px;
+  min-height:100vh;
+  margin:0 auto;
+  position:fixed;
+  background: transparent;
+  border-radius: 5px;
+  -webkit-transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    font-size: 30px;
+}
+
+
+
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  display: inline-block;
+  height: 180px;
+  width: 180px;
+  margin: 1rem;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+
+
+
+.controlActions {
+  position: fixed;
+  bottom: 40px; right: 110px;
+}
+
+  .controlButtons {
+    position: absolute;
+    width: 100%;
+    bottom: 120%;
+    text-align: center;
+  }
+
+    .controlButtons a {
+      display: block;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      text-decoration: none;
+      margin: 20px auto 0;
+      line-height: 1.15;
+      color: #fff;
+      opacity: 100;
+      position: relative;
+      padding:0.3em;
+      box-shadow: 0 0 5px 1px rgba(51, 51, 51, .3);
+    }
+
+      .controlButtons a:hover {
+        transform: scale(1.05);
+      }
+
+      .controlButtons a:nth-child(1) {background-color: #ff5722; transition: opacity .2s ease-in-out .3s, transform .15s ease-in-out;}
+      .controlButtons a:nth-child(2) {background-color: #03a9f4; transition: opacity .2s ease-in-out .25s, transform .15s ease-in-out;}
+
+      .controlActions a i {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+      }
+

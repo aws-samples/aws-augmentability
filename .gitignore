@@ -1,0 +1,7 @@
+node_modules
+dist
+build
+npm-debug.log
+.env
+.DS_Store
+z-config.js
