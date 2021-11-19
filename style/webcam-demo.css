@@ -358,10 +358,10 @@ Modifications: webcam-app background-image removed; cameraFlip, cameraControls a
 
 .container {
   position: fixed;
-  top: 50%;
+  top: 2%;
   background: #fff;
   border-radius: 10px;
   display: inline-block;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  z-index: 99999999
+  z-index: 99999999;
 }

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Help me read</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://kit.fontawesome.com/692060e681.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style/shoelace.css" />
+        <link rel="stylesheet" href="style/styles.css" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png" />
+        <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
+    </head>
+
+    <body>
+        <a href="index.html" style="color: #000000;">
+            <p style="text-align: left; font-size: 20px;"><i class="fas fa-arrow-left"></i></p>
+        </a>
+
+        <div class="container">
+            <br />
+
+            <h2 style="text-align: center;">
+                <b>Help me read labels & signs</b>
+            </h2>
+
+            <br />
+
+            <select class="selector" id="language" onchange="location = this.value;">
+                <option selected>Select a language</option>
+                <option value="f-see-text.html?language=da">Danish</option>
+                <option value="f-see-text.html?language=nl">Dutch</option>
+                <option value="f-see-text.html?language=en">English</option>
+                <option value="f-see-text.html?language=fr">French</option>
+                <option value="f-see-text.html?language=de">German</option>
+                <option value="f-see-text.html?language=is">Icelandic</option>
+                <option value="f-see-text.html?language=it">Italian</option>
+                <option value="f-see-text.html?language=no">Norwegian</option>
+                <option value="f-see-text.html?language=pl">Polish</option>
+                <option value="f-see-text.html?language=pt">Portuguese</option>
+                <option value="f-see-text.html?language=ro">Romanian</option>
+                <option value="f-see-text.html?language=ru">Russian</option>
+                <option value="f-see-text.html?language=es">Spanish</option>
+                <option value="f-see-text.html?language=sv">Swedish</option>
+                <option value="f-see-text.html?language=tr">Turkish</option>
+                <option value="f-see-text.html?language=cy">Welsh</option>
+            </select>
+
+            <br />
+            <br />
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </body>
+</html>

@@ -3,10 +3,14 @@
 **AWS AugmentAbility** is a mobile web app which showcases 4 AWS AI services (Amazon Transcribe, Amazon Translate, Amazon Polly and Amazon Rekognition) and, at the same time, provides features that may benefit people with a visual or communication impairment, including difficulties in reading written text (text recognition), hearing (live transcription), speaking (text-to-speech), or having a conversation in a foreign language (voice-to-voice live translation).
 
 ### Main features
-* **Real-time Conversation Translation**: select a target language, speak in your language, and the app will translate what you said in your target language. 9 languages currently supported (Chinese, English, French, German, Italian, Japanese, Korean, Portuguese, Spanish).
-* **Live transcription and text-to-speech**: the app transcribes conversations and speeches for you, in real-time. Can't speak? Type what you want to say, and the app will say it for you.
-* **Live transcription and text-to-speech with translation**: the app transcribes and translates conversations and speeches for you, in real-time. Can't speak? Type what you want to say, and the app will translate and say it for you.
-* **Live text detection**: point your camera at any text, and the app will read it out loud for you.
+* **Real-time Conversation Translation**: select a target language, speak in your language, and the app will translate what you said in your target language. 
+This feature is currently available in 9 languages (Chinese, English, French, German, Italian, Japanese, Korean, Portuguese, Spanish).
+* **Live transcription and text-to-speech**: the app transcribes conversations and speeches for you, in real-time. Can't speak? Type what you want to say, and the app will say it for you. 
+This feature is currently available in 9 languages (Chinese, English, French, German, Italian, Japanese, Korean, Portuguese, Spanish).
+* **Live transcription and text-to-speech with translation**: the app transcribes and translates conversations and speeches for you, in real-time. Can't speak? Type what you want to say, and the app will translate and say it for you. You can benefit of translations in 70+ languages.
+* **Object detection**: take a picture, and the app will describe the objects around you.
+* **Text recognition for labels and signs**: point your camera at any label, sign or small chunk of text, and the app will read it out loud for you. AWS AugmentAbility can also translate the text into 70+ languages, or make it more readable for users with dyslexia by leveraging the OpenDyslexic font.
+* **Text extraction from documents**: point your camera at any full-page document, and the app will read it out loud for you.  AWS AugmentAbility can also translate the text into 70+ languages, or make it more readable for users with dyslexia by leveraging the OpenDyslexic font.
 
 
 ### Solution architecture
@@ -26,11 +30,13 @@
                 "Sid": "VisualEditor0",
                 "Effect": "Allow",
                 "Action": [
-                    "polly:SynthesizeSpeech",
-                    "rekognition:DetectText",
                     "transcribe:StartStreamTranscriptionWebSocket",
                     "translate:TranslateText",
-                    "comprehend:DetectDominantLanguage"
+                    "comprehend:DetectDominantLanguage",
+                    "polly:SynthesizeSpeech",
+                    "rekognition:DetectText",
+                    "rekognition:DetectLabels",
+                    "textract:DetectDocumentText"
                 ],
                 "Resource": "*",
                 "Condition": {

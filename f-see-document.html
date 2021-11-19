@@ -2,59 +2,38 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Live transcription and text-to-speech with translation</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>webcam-js</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/opendyslexic" type="text/css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" media="screen" href="style/webcam-demo.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="lib/webcam-easy.js"></script>
         <script src="https://kit.fontawesome.com/692060e681.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="style/shoelace.css" />
-        <link rel="stylesheet" href="style/styles.css" />
-
         <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png" />
-        <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
+        <link rel="manifest" href="manifest.json" />
     </head>
-
     <body>
-        <div>
-            <a href="index.html" style="color: #000000;">
-                <p style="text-align: left; font-size: 20px;"><i class="fas fa-arrow-left"></i></p>
-            </a>
+        <main id="webcam-app">
 
-            <h2 style="text-align: center;">
-                <b>Live transcription and text-to-speech with translation</b>
-            </h2>
-
-            <div class="language" style="text-align: center;">
-                <div id="selector1" role="application" style="float: left; width: 49%; margin-right: 2%;">
-                    <div id="select" class="demo-section k-content">
-                        <label style="margin-top: 1em;"><b>Foreign language</b></label>
-
-                        <select id="language" style="width: 100%;">
-                            <optgroup label="English">
-                                <option selected value="en-US">US English</option>
-                                <option value="en-GB">British English</option>
-                                <option value="en-AU">Australian English</option>
-                            </optgroup>
-                            <optgroup label="French">
-                                <option value="fr-FR">French</option>
-                                <option value="fr-CA">Canadian French</option>
-                            </optgroup>
-                            <option value="pt-BR">Brazilian Portuguese</option>
-                            <option value="de-DE">German</option>
-                            <option value="it-IT">Italian</option>
-                            <option value="ja-JP">Japanese</option>
-                            <option value="ko-KR">Korean</option>
-                            <option value="zh-CN">Mandarin Chinese (Mainland)</option>
-                            <option value="es-US">US Spanish</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div id="selector2" role="application" style="float: left; width: 49%; margin-right: 0;">
-                    <div id="select" class="demo-section k-content">
-                        <label style="margin-top: 1em;"><b>Your language</b></label>
-
-                        <select id="translateTo" style="width: 100%;">
+            <div class="container" id="text-container" >
+                <br>
+                <a href="#" id="hide-container" style="color: #000000;">
+                    <p style="text-align: right; font-size: 20px;"><i class="fas fa-times"></i></p>
+                </a>
+                <p style="text-align: center; font-size: 20px;" id="detectedTextAlert"></p>
+                <textarea id="detectedText" style="resize: none;" rows="10" readonly="readonly"></textarea>
+                <center>
+                    <div id="translate-dyslexic-div">
+                        <label style="margin-top: 2em;"><b>Translate to</b></label>
+                        <select id="translateTextTo" style="width: 100%;">
+                            <option selected>Select a language</option>
                             <option value="af">Afrikaans</option>
                             <option value="sq">Albanian</option>
                             <option value="am">Amharic</option>
@@ -90,7 +69,7 @@
                             <option value="hu">Hungarian</option>
                             <option value="is">Icelandic</option>
                             <option value="id">Indonesian</option>
-                            <option selected value="it">Italian</option>
+                            <option value="it">Italian</option>
                             <option value="ja">Japanese</option>
                             <option value="kn">Kannada</option>
                             <option value="kk">Kazakh</option>
@@ -129,95 +108,59 @@
                             <option value="vi">Vietnamese</option>
                             <option value="cy">Welsh</option>
                         </select>
+                        <br>
+                        <button class="button-l" id="dyslexic-button">Make more readable (OpenDyslexic font)</button>
+                        <br><br>
+                        <button id="btn-decrease">A-</button>
+                        <button id="btn-orig">A</button>
+                        <button id="btn-increase">A+</button>
+                    </div>
+                <center>
+                <br>
+            </div>
+
+            <div class="controlActions">
+                <div class="controlButtons">
+                    <a href="#" id="show-text" title="Show detected text"><i class="fas fa-align-left"></i></a>
+                </div>
+            </div>
+
+            <div id="errorMsg" class="col-12 col-md-6 alert-danger d-none">
+                Fail to start camera, please allow permision to access camera. <br />
+                If you are browsing through social media built in browsers, you would need to open the page in Sarafi (iPhone)/ Chrome (Android)
+                <button id="closeError" class="btn btn-primary ml-3">OK</button>
+            </div>
+            <div class="md-modal md-effect-12">
+                <div id="app-panel" class="app-panel md-content row p-0 m-0">
+                    <div id="webcam-container" class="webcam-container col-12 d-none p-0 m-0">
+                        <video id="webcam" autoplay playsinline width="640" height="480"></video>
+                        <canvas id="canvas" class="d-none"></canvas>
+                        <div class="flash"></div>
+                        <audio id="snapSound" src="audio/beep.wav" preload="auto"></audio>
+                    </div>
+
+                    <p style="color: white; font-size: 16px; position: fixed; padding: 10px; z-index: 999999; background-color: black; opacity: 0.4;">
+                        <b>
+                            Point your camera at a document and take a picture: the text will be read out loud for you. Don't forget to turn up the volume!
+                        </b>
+                    </p>
+
+                    <div id="cameraControls" class="cameraControls">
+                        <a href="#" id="take-photo" title="Take Photo"><i class="material-icons">camera_alt</i></a>
+
+                        <button id="cameraFlip" title="Camera flip" class="button-xl" title="Switch languages"><i style="font-size: 30px;" class="fas fa-retweet"></i> <i style="font-size: 15px;" class="fas fa-camera"></i></button>
                     </div>
                 </div>
             </div>
-            <br />
-            <br />
-            <br />
-            <br />
+            <div class="md-overlay"></div>
+        </main>
+
+        <div id="textToSynth" style="text-align: center;">
+            <audio id="audioPlayback" autoplay>
+                <source id="audioSource" type="audio/mp3" src="" />
+            </audio>
         </div>
 
-        <div class="container">
-            <br />
-
-            <div id="translate-div">
-                <h2 style="text-align: center;">
-                    Listen
-                </h2>
-
-                <div class="controlActions">
-                    <div class="controlButtons">
-                        <a href="#" id="start-button" title="Start listening"><i class="fas fa-microphone"></i></a>
-                        <a href="#" id="stop-button" title="Stop listening"><i class="fas fa-stop"></i></a>
-                    </div>
-                </div>
-
-                <div id="error" class="isa_error"></div>
-
-                <textarea id="transcript" placeholder="The transcription will show up here" rows="10" readonly="readonly"></textarea>
-
-                <br />
-
-                <textarea id="translate" placeholder="The translation will show up here" rows="10" readonly="readonly"></textarea>
-
-                <br />
-
-                <div style="text-align: right;">
-                    <button id="reset-button" class="button-l button-secondary" title="Clear Transcription and Translation">
-                        Clear
-                    </button>
-                </div>
-
-                <br />
-                <br />
-            </div>
-        </div>
-
-        <br />
-        <br />
-        <div class="container">
-            <br />
-
-            <h2 style="text-align: center;">
-                Speak
-            </h2>
-            <br />
-            <div id="textToSynth" style="text-align: center;">
-                <input size="23" type="text" id="textEntry" placeholder="Enter here what you want to say: it will be automatically translated and read out loud" />
-                <br />
-                <button class="button-l" id="translate-play-button"><i class="fa fa-play"></i> Translate & Read</button>
-
-                <!-- <p id="result"></p>-->
-
-                <br />
-                <br />
-
-                <textarea id="translate2" placeholder="The translation will show up here" rows="10" readonly="readonly"></textarea>
-
-                <br />
-
-                <div style="text-align: right;">
-                    <button id="reset-button-2" class="button-l button-secondary" title="Clear Translation">
-                        Clear
-                    </button>
-                </div>
-
-                <br />
-                <br />
-
-                <audio id="audioPlayback" controls autoplay>
-                    <source id="audioSource" type="audio/mp3" src="" />
-                </audio>
-            </div>
-
-            <br />
-            <br />
-            <br />
-            <br />
-        </div>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="lib/aws-sdk-2.1030.0.min.js"></script>
         <script src="z-config.js"></script>
         <script src="dist/main.js"></script>
