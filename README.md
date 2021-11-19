@@ -1,6 +1,6 @@
 ## AWS AugmentAbility
 
-**AWS AugmentAbility** is a mobile web app which showcases 4 AWS AI services (Amazon Transcribe, Amazon Translate, Amazon Polly and Amazon Rekognition) and, at the same time, provides features that may benefit people with a visual or communication impairment, including difficulties in reading written text (text recognition), hearing (live transcription), speaking (text-to-speech), or having a conversation in a foreign language (voice-to-voice live translation).
+**AWS AugmentAbility** is a mobile web app which showcases 5 AWS AI services (Amazon Transcribe, Amazon Translate, Amazon Polly, Amazon Rekognition and Amazon Textract) and, at the same time, provides features that may benefit people with a visual or communication impairment, including difficulties in reading written text (text recognition), hearing (live transcription), speaking (text-to-speech), or having a conversation in a foreign language (voice-to-voice live translation).
 
 ### Main features
 * **Real-time Conversation Translation**: select a target language, speak in your language, and the app will translate what you said in your target language. 
