@@ -71,7 +71,7 @@ This feature is currently available in 9 languages (Chinese, English, French, Ge
 ## Phase 2, option 2: building and deploying to AWS Amplify Console
 
  1. Complete Phase 1 (see above)
- 2. Deploy to AWS Amplify Console (https://docs.aws.amazon.com/amplify/latest/userguide/getting-started.html)
+ 2. Deploy to the AWS Amplify Console (https://docs.aws.amazon.com/amplify/latest/userguide/getting-started.html). At Step 2a make sure to replace command `npm run build` with `npm run-script build`
 
 
 

@@ -94,7 +94,7 @@
             <div class="controlActions">
                 <div class="controlButtons">
                     <a href="#" id="start-conversation-button" title="Start listening"><i class="fas fa-microphone"></i></a>
-                    <a href="#" id="stop-conversation-button" title="Stop & Read translation out loud"><i class="fas fa-stop"></i></a>
+                    <a href="#" style="display: none" id="stop-conversation-button" title="Stop & Read translation out loud"><i class="fas fa-stop"></i></a>
                 </div>
             </div>
 
@@ -118,7 +118,7 @@
             <div id="textToSynth" style="text-align: center;">
                 <!-- <p id="result"></p>-->
 
-                <audio id="audioPlayback" controls autoplay>
+                <audio style="display: none" id="audioPlayback" controls autoplay>
                     <source id="audioSource" type="audio/mp3" src="" />
                 </audio>
             </div>
