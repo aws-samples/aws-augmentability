@@ -3,18 +3,17 @@
 **AWS AugmentAbility** is a mobile web app which showcases 5 AWS AI services (Amazon Transcribe, Amazon Translate, Amazon Polly, Amazon Rekognition and Amazon Textract) and, at the same time, provides features that may benefit people with a visual or communication impairment, including difficulties in reading written text (text recognition), hearing (live transcription), speaking (text-to-speech), or having a conversation in a foreign language (voice-to-voice live translation).
 
 ### Main features
-* **Real-time Conversation Translation**: select a target language, speak in your language, and the app will translate what you said in your target language. 
+* **Live transcription and text-to-speech**: the app transcribes conversations and speeches for you, in real-time. Can't speak? Type what you want to say, and the app will say it for you. This feature is currently available in 9 languages (Chinese, English, French, German, Italian, Japanese, Korean, Portuguese, Spanish).
+* **Live transcription and text-to-speech with translation**: the app transcribes and translates conversations and speeches for you, in real-time. Can't speak? Type what you want to say, and the app will translate and say it for you. Translation currently available in 70+ languages.
+* **Real-time Conversation Translation**: select a target language, speak in your own language, and the app will translate what you say in the target language. 
 This feature is currently available in 9 languages (Chinese, English, French, German, Italian, Japanese, Korean, Portuguese, Spanish).
-* **Live transcription and text-to-speech**: the app transcribes conversations and speeches for you, in real-time. Can't speak? Type what you want to say, and the app will say it for you. 
-This feature is currently available in 9 languages (Chinese, English, French, German, Italian, Japanese, Korean, Portuguese, Spanish).
-* **Live transcription and text-to-speech with translation**: the app transcribes and translates conversations and speeches for you, in real-time. Can't speak? Type what you want to say, and the app will translate and say it for you. You can benefit of translations in 70+ languages.
-* **Object detection**: take a picture, and the app will describe the objects around you.
-* **Text recognition for labels and signs**: point your camera at any label, sign or small chunk of text, and the app will read it out loud for you. AWS AugmentAbility can also translate the text into 70+ languages, or make it more readable for users with dyslexia by leveraging the OpenDyslexic font.
-* **Text extraction from documents**: point your camera at any full-page document, and the app will read it out loud for you.  AWS AugmentAbility can also translate the text into 70+ languages, or make it more readable for users with dyslexia by leveraging the OpenDyslexic font.
+* **Object detection**: take a picture with your smartphone, and the app will describe the objects around you.
+* **Text recognition for labels and signs**: point your camera at any label, sign or small chunk of text, and the app will read it out loud for you. AugmentAbility can also translate the text into 70+ languages, or make it more readable for users with dyslexia by leveraging the OpenDyslexic font.
+* **Text extraction from documents**: point your camera at any full-page document, and the app will read it out loud for you. AugmentAbility can also translate the text into 70+ languages, or make it more readable for users with dyslexia by leveraging the OpenDyslexic font.
 
 
 ### Solution architecture
-![Solution architecture](https://github.com/aws-samples/aws-augmentability/raw/main/images/architecture.png)
+![Solution architecture](https://github.com/aws-samples/aws-augmentability/raw/main/images/architecture.jpg)
 
 ## Phase 1: Pre-deployment steps
 
@@ -62,8 +61,8 @@ This feature is currently available in 9 languages (Chinese, English, French, Ge
 
  1. Complete Phase 1 (see above)
  2. run `npm install` (only first time)
- 3. run `npm run-script build`
- 4. run `npm install --global local-web-server` (only first time)
+ 3. run `npm install --global local-web-server` (only first time)
+ 4. run `npm run-script build` (only first time, or in case of changes to JavaScript code)
  5. run `ws`
  6. Open the index.html file in a browser
 
@@ -77,25 +76,7 @@ This feature is currently available in 9 languages (Chinese, English, French, Ge
 
 ## Acknowledgments and Credits
 
-- amazon-archives/amazon-transcribe-websocket-static - Apache 2.0 License *
-- ziniman/amazon-transcribe-websocket-static - Apache 2.0 License *
-- aws-sdk - Apache 2.0 License
-- bensonruan/webcam-easy - MIT License *
-- department-stockholm/aws-signature-v4 - MIT License *
-- jquery/jquery - MIT License
-- browserify/browserify - MIT License
-- lwsjs/local-web-server - MIT License
-- microphone-stream/microphone-stream - MIT License
-- sindresorhus/query-string -  MIT License
-- babel/babel - MIT License
-- babel/babelify - MIT License
-- Semantic-Org/Semantic-UI - MIT License
-- uikit/uikit - MIT License
-- shoelace-style/shoelace - MIT License
-
-- Font Awesome icons - CC BY 4.0 License
-- Twemoji icons - CC BY 4.0 License
-- Lordicon free icons - CC BY ND 4.0 License
+amazon-archives/amazon-transcribe-websocket-static * (Apache 2.0 License), ziniman/amazon-transcribe-websocket-static * (Apache 2.0 License), aws-sdk (Apache 2.0 License), bensonruan/webcam-easy * (MIT License), department-stockholm/aws-signature-v4 * (MIT License), jquery/jquery (MIT License), browserify/browserify (MIT License), lwsjs/local-web-server (MIT License), microphone-stream/microphone-stream (MIT License), sindresorhus/query-string (MIT License), babel/babel (MIT License), babel/babelify (MIT License), Semantic-Org/Semantic-UI (MIT License), uikit/uikit (MIT License), shoelace-style/shoelace (MIT License), Font Awesome icons (CC BY 4.0 License), Twemoji icons (CC BY 4.0 License), Lordicon free icons (CC BY ND 4.0 License), terser/terser (BSD license).
 
 \* In accordance with its license, this package was subject to some modifications (edited files available in the "lib" and "style" directories)
 
