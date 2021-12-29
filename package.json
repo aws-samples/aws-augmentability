@@ -8,7 +8,8 @@
     "url": "http://aws.amazon.com/"
   },
   "scripts": {
-    "build": "browserify lib/main.js -o dist/main.js -d"
+    "build": "browserify lib/main.js -o dist/main-temp.js -d",
+    "postbuild": "terser --output dist/main.js -- dist/main-temp.js"
   },
   "keywords": [],
   "browserify": {
@@ -24,14 +25,15 @@
     ]
   },
   "dependencies": {
+    "@aws-sdk/client-cognito-identity": "3.19.0",
     "@aws-sdk/eventstream-marshaller": "0.1.0-preview.2",
     "@aws-sdk/util-utf8-node": "0.1.0-preview.1",
+    "aws-sdk": "2.938.0",
     "browserify": "^16.5.1",
     "local-web-server": "^3.0.7",
     "microphone-stream": "^5.0.1",
     "query-string": "^6.12.1",
-    "@aws-sdk/client-cognito-identity": "3.19.0",
-    "aws-sdk": "2.938.0"
+    "terser": "^5.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
