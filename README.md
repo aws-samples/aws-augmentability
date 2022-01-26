@@ -48,7 +48,7 @@ This feature is currently available in 9 languages (Chinese, English, French, Ge
     }
 
 
- 3. Clone the repository, create a file named "z-config.js" in the main folder, and paste the following code. Don't forget to replace INSERT_HERE_YOUR_COGNITO_IDENTITY_POOL with your *Cognito Identity pool ID*:
+ 3. Clone the repository, create a file named "config.js" in the main folder, and paste the following code. Don't forget to replace INSERT_HERE_YOUR_COGNITO_IDENTITY_POOL with your *Cognito Identity pool ID*:
 
 .
 
