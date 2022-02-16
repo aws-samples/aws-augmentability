@@ -20,6 +20,11 @@
         <link rel="manifest" href="manifest.json" />
     </head>
     <body>
+
+        <a href="index.html" style="color: #000000;">
+            <p style="text-align: left; font-size: 20px; color:  white; padding: 10px; position: fixed; z-index: 9999999; "><i class="fas fa-arrow-left"></i></p>
+        </a>
+
         <main id="webcam-app">
 
             <div class="container" style="display: none" id="text-container" >
@@ -125,11 +130,11 @@
                 </div>
             </div>
 
-            <div id="errorMsg" class="col-12 col-md-6 alert-danger d-none">
-                Fail to start camera, please allow permision to access camera. <br />
-                If you are browsing through social media built in browsers, you would need to open the page in Sarafi (iPhone)/ Chrome (Android)
-                <button id="closeError" class="btn btn-primary ml-3">OK</button>
+            <div style="text-align: center;" id="errorMsg" class="col-12 col-md-6 alert-danger d-none">
+                Failed to start camera, please allow permision to access camera. <br /><br />
+                <button onClick="window.location.reload();" class="btn btn-primary ml-3">Retry</button>
             </div>
+            
             <div class="md-modal md-effect-12">
                 <div id="app-panel" class="app-panel md-content row p-0 m-0">
                     <div id="webcam-container" class="webcam-container col-12 d-none p-0 m-0">
@@ -139,11 +144,11 @@
                         <audio id="snapSound" src="audio/beep.wav" preload="auto"></audio>
                     </div>
 
-                    <p style="color: white; font-size: 16px; position: fixed; padding: 10px; z-index: 999999; background-color: black; opacity: 0.4;">
-                        <b>
-                            Point your camera at a label or small chunk of text and take a picture: the text will be read out loud for you. Don't forget to turn up the volume!
-                        </b>
-                    </p>
+                    <div style="color: white; font-size: 16px; position: fixed; padding: 10px; z-index: 999999; background-color: black; opacity: 0.4;">
+                        <div style="margin-left: 30px; font-weight: bold;">
+                            Take a picture of a label or small chunk of text: the app will read it out loud for you. Don't forget to turn up the volume!
+                        </div>
+                    </div>
 
                     <div id="cameraControls" class="cameraControls">
                         <a href="#" id="take-photo" title="Take Photo"><i class="material-icons">camera_alt</i></a>
