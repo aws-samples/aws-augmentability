@@ -3,13 +3,14 @@
 **AWS AugmentAbility** is a mobile web app which showcases 5 AWS AI services (Amazon Transcribe, Amazon Translate, Amazon Polly, Amazon Rekognition and Amazon Textract) and, at the same time, provides features that may benefit people with a visual or communication impairment, including difficulties in reading written text (text recognition), hearing (live transcription), speaking (text-to-speech), or having a conversation in a foreign language (voice-to-voice live translation).
 
 ### Main features
-* **Live transcription and text-to-speech**: the app transcribes conversations and speeches for you, in real-time. Can't speak? Type what you want to say, and the app will say it for you. This feature is currently available in 9 languages (Chinese, English, French, German, Italian, Japanese, Korean, Portuguese, Spanish).
-* **Live transcription and text-to-speech with translation**: the app transcribes and translates conversations and speeches for you, in real-time. Can't speak? Type what you want to say, and the app will translate and say it for you. Translation currently available in 70+ languages.
-* **Real-time Conversation Translation**: select a target language, speak in your own language, and the app will translate what you say in the target language. 
-This feature is currently available in 9 languages (Chinese, English, French, German, Italian, Japanese, Korean, Portuguese, Spanish).
+* **Live transcription and text-to-speech**: the app transcribes conversations and speeches for you, in real-time. Can't speak? Type what you want to say, and the app will say it for you. This feature is currently available in Chinese, English, French, German, Italian, Japanese, Korean, Portuguese and Spanish.
+* **Live transcription and text-to-speech with translation**: the app transcribes and translates conversations and speeches for you, in real-time. Can't speak? Type what you want to say, and the app will translate and say it for you. Translation currently available in 75+ languages.
+* **Real-time Conversation Translation**: select a target language, speak in your own language, and the app will translate what you say in the target language. This feature is currently available in Chinese, English, French, German, Italian, Japanese, Korean, Portuguese and Spanish.
 * **Object detection**: take a picture with your smartphone, and the app will describe the objects around you.
-* **Text recognition for labels and signs**: point your camera at any label, sign or small chunk of text, and the app will read it out loud for you. AugmentAbility can also translate the text into 70+ languages, or make it more readable for users with dyslexia by leveraging the OpenDyslexic font.
-* **Text extraction from documents**: point your camera at any full-page document, and the app will read it out loud for you. AugmentAbility can also translate the text into 70+ languages, or make it more readable for users with dyslexia by leveraging the OpenDyslexic font.
+* **Text recognition for labels and signs**: point your camera at any label, sign or small chunk of text, and the app will read it out loud for you. AugmentAbility can also translate the text into 75+ languages, or make it more readable for users with dyslexia by leveraging the OpenDyslexic font.
+* **Text extraction from documents**: point your camera at any full-page document, and the app will read it out loud for you. AugmentAbility can also translate the text into 75+ languages, or make it more readable for users with dyslexia by leveraging the OpenDyslexic font.
+
+Text recognition features are currently available in Arabic, English, French, German, Italian, Portuguese, Russian and Spanish.
 
 
 ### Solution architecture

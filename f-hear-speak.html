@@ -29,22 +29,23 @@
             <div class="language" style="text-align: center;">
                 <label><b>Select a language: </b></label>
                 <select id="language">
-                    <option value="pt-BR">Brazilian Portuguese</option>
-                    <option value="de-DE">German</option>
-                    <option selected value="it-IT">Italian</option>
-                    <option value="ja-JP">Japanese</option>
-                    <option value="ko-KR">Korean</option>
-                    <option value="zh-CN">Mandarin Chinese</option>
-                    <option value="es-US">US Spanish</option>
+                    <option value="auto">Automatic language identification</option>
+                    <option value="zh-CN">Chinese (Mandarin)</option>
                     <optgroup label="English">
-                        <option value="en-US">US English</option>
-                        <option value="en-GB">British English</option>
                         <option value="en-AU">Australian English</option>
+                        <option value="en-GB">British English</option>
+                        <option value="en-US">US English</option>
                     </optgroup>
                     <optgroup label="French">
                         <option value="fr-FR">French</option>
                         <option value="fr-CA">Canadian French</option>
                     </optgroup>
+                    <option value="de-DE">German</option>
+                    <option selected value="it-IT">Italian</option>
+                    <option value="ja-JP">Japanese</option>
+                    <option value="ko-KR">Korean</option>
+                    <option value="pt-BR">Portuguese (Brazilian)</option>
+                    <option value="es-US">Spanish (US)</option>
                 </select>
             </div>
         </div>
@@ -81,7 +82,7 @@
         </div>
         <br />
         <br />
-        <div class="container">
+        <div id="speak-container" class="container">
             <br />
 
             <h2 style="text-align: center;">
