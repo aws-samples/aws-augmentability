@@ -42,8 +42,7 @@ Live transcription, text-to-speech and real-time conversation translation featur
     }
 
 3. In the config.js file you have created, replace the 4 “INSERT_” strings with the Cognito identity pool ID, the identifier of your Region of choice, the Cognito user pool ID, and the Cognito user pool Client ID. You can retrieve such values by accessing the AWS CloudFormation console, selecting the stack and choosing the Outputs tab. 
-
-
+4. Before accessing the app for the first time, you will have to set a new password for the user that has been automatically created by the CloudFormation template. You can find the link to the temporary login screen in the CloudFormation stack Outputs tab. For this first sign-in, you will use the username and temporary password you received via email.
  
 
 ## Phase 2, option 1: building and deploying locally
@@ -60,7 +59,6 @@ Live transcription, text-to-speech and real-time conversation translation featur
 
  1. Complete Phase 1 (see above)
  2. Deploy to the AWS Amplify Console (https://docs.aws.amazon.com/amplify/latest/userguide/getting-started.html). At Step 2a make sure to replace command `npm run build` with `npm run-script build`
- 3. Before accessing the app for the first time, you have to set a new password for the user that has been automatically created during Phase 1. You can find the link to the temporary login screen in the CloudFormation stack Outputs tab. For this first sign-in, you will use the username and temporary password you received via email.
 
 
 
