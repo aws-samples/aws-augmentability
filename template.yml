@@ -1,0 +1,139 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: AugmentAbility - Amazon Cognito stack
+Parameters:
+  Region:
+    Type: String
+    Description: AWS region identifier (us-east-2, us-east-1, us-west-1, us-west-2, ap-south-1, ap-northeast-2, ap-southeast-1, ap-southeast-2, ca-central-1, eu-central-1, eu-west-1, eu-west-2)
+  Username:
+    Type: String
+    Description: Username to be used for signing-in into the web application (e.g., user)
+  Email:
+    Type: String
+    Description: Email address to which the temporary password will be sent
+
+Resources:
+
+  # Create an Amazon Cognito User Pool
+  UserPool:
+    Type: "AWS::Cognito::UserPool"
+    Properties:
+      AccountRecoverySetting:   
+        RecoveryMechanisms: 
+          - Name: verified_email
+            Priority: 1
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: True
+      MfaConfiguration: "OFF"
+      UserPoolName: augmentability-user-pool
+
+  # Create an Amazon Cognito User 
+  UserPoolUser:
+    Type: AWS::Cognito::UserPoolUser
+    Properties: 
+      DesiredDeliveryMediums: 
+        - "EMAIL"
+      UserAttributes: 
+        - Name: email
+          Value: !Ref Email
+      Username: !Ref Username
+      UserPoolId: !Ref UserPool
+
+  # Create an Amazon Cognito User Pool Client 
+  UserPoolClient:
+    Type: "AWS::Cognito::UserPoolClient"
+    Properties:
+      ClientName: augmentability-client
+      GenerateSecret: false
+      UserPoolId: !Ref UserPool
+      CallbackURLs:
+        - https://console.aws.amazon.com
+      SupportedIdentityProviders:
+        - COGNITO
+      AllowedOAuthFlowsUserPoolClient: True
+      AllowedOAuthFlows:
+        - code
+      AllowedOAuthScopes:
+        - openid
+        - email
+
+  
+  # Create an Amazon Cognito User Pool Hosted UI domain
+  UserPoolDomain:
+    Type: AWS::Cognito::UserPoolDomain
+    Properties:
+      UserPoolId: !Ref UserPool
+      Domain: !Ref UserPoolClient
+
+  # Create an Amazon Cognito Identity Pool
+  IdentityPool:
+    Type: "AWS::Cognito::IdentityPool"
+    Properties:
+      IdentityPoolName: augmentability-identity-pool
+      AllowUnauthenticatedIdentities: false
+      CognitoIdentityProviders: 
+        - ClientId: !Ref UserPoolClient
+          ProviderName: !GetAtt UserPool.ProviderName
+
+  # Create a role for authorized acces to AWS resources
+  CognitoAuthorizedRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument: 
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal: 
+              Federated: "cognito-identity.amazonaws.com"
+            Action: 
+              - "sts:AssumeRoleWithWebIdentity"
+            Condition:
+              StringEquals: 
+                "cognito-identity.amazonaws.com:aud": !Ref IdentityPool
+              "ForAnyValue:StringLike":
+                "cognito-identity.amazonaws.com:amr": authenticated
+      Policies:
+        - PolicyName: "CognitoAuthorizedPolicy"
+          PolicyDocument: 
+            Version: "2012-10-17"
+            Statement: 
+              - Effect: "Allow"
+                Action:
+                  - "transcribe:StartStreamTranscriptionWebSocket"
+                  - "translate:TranslateText"
+                  - "comprehend:DetectDominantLanguage"
+                  - "polly:SynthesizeSpeech"
+                  - "rekognition:DetectText"
+                  - "rekognition:DetectLabels"
+                  - "textract:DetectDocumentText"
+                Resource: "*"
+                Condition:
+                  StringEquals: 
+                    "aws:RequestedRegion": !Ref Region
+  
+  # Assign authenticated IAM role to the Amazon Cognito Identity Pool
+  IdentityPoolRoleMapping:
+    Type: "AWS::Cognito::IdentityPoolRoleAttachment"
+    Properties:
+      IdentityPoolId: !Ref IdentityPool
+      Roles:
+        authenticated: !GetAtt CognitoAuthorizedRole.Arn
+
+Outputs:
+  IdentityPoolId:
+    Value: !Ref IdentityPool
+    Export:
+      Name: "IdentityPool::Id"
+  Region:
+    Value: !Ref Region
+  UserPoolId:
+    Value: !Ref UserPool
+    Export:
+      Name: "UserPool::Id"
+  UserWebClientId:
+    Value: !Ref UserPoolClient
+    Export:
+      Name: "UserPoolClient::Id"
+  UserPoolLoginUrl:
+    Value: !Sub 'https://${UserPoolClient}.auth.${Region}.amazoncognito.com/login?response_type=code&client_id=${UserPoolClient}&redirect_uri=https://console.aws.amazon.com'
+    Export:
+      Name: UserPool::LoginURL
