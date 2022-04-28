@@ -122,6 +122,12 @@
                         <button id="btn-decrease">A-</button>
                         <button id="btn-orig">A</button>
                         <button id="btn-increase">A+</button>
+                        <br><br>
+                        <div id="textToSynth" style="text-align: center;">
+                            <audio id="audioPlayback" controls autoplay>
+                                <source id="audioSource" type="audio/mp3" src="" />
+                            </audio>
+                        </div>
                     </div>
                 <center>
                 <br>
@@ -162,12 +168,6 @@
             </div>
             <div class="md-overlay"></div>
         </main>
-
-        <div id="textToSynth" style="text-align: center;">
-            <audio id="audioPlayback" autoplay>
-                <source id="audioSource" type="audio/mp3" src="" />
-            </audio>
-        </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="lib/aws-sdk-2.1030.0.min.js"></script>
