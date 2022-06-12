@@ -23,7 +23,7 @@
                 <b>AWS AugmentAbility</b>
             </h2>
             <br />
-            <h4>Sign In</h4>
+            <h4><b>Sign In</b></h4>
             <br />
             <div className="myform" >
                 <div className="myformgroup">
@@ -33,6 +33,8 @@
                 <div className="myformgroup">   
                   <label for="pwd">Password:</label><br>
                   <input type="password" name="pass" id="pwd">
+                  <br />
+                  <input type="checkbox" onclick="myFunction()"> Show Password
                 </div>
                 <br />
                 <div className="myformgroup">
@@ -45,6 +47,17 @@
             <p> <a href="https://github.com/aws-samples/aws-augmentability" >Source code</a> - <a href="https://raw.githubusercontent.com/aws-samples/aws-augmentability/main/THIRD_PARTY_LICENSES" >Credits</p>
 
         </div>
+
+        <script>
+        function myFunction() {
+          var x = document.getElementById("pwd");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+        </script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="lib/aws-sdk-2.1030.0.min.js"></script>
