@@ -1,5 +1,7 @@
 ## AWS AugmentAbility
 
+***A blog post about AWS AugmentAbility is now online!  To learn more, check [this link](https://aws.amazon.com/blogs/machine-learning/use-aws-ai-and-ml-services-to-foster-accessibility-and-inclusion-of-people-with-a-visual-or-communication-impairment/).***
+
 **AWS AugmentAbility** is a mobile web app which showcases 5 AWS AI services (Amazon Transcribe, Amazon Translate, Amazon Polly, Amazon Rekognition and Amazon Textract) and, at the same time, provides features that may benefit people with a visual or communication impairment, including difficulties in reading written text (text recognition), hearing (live transcription), speaking (text-to-speech), or having a conversation in a foreign language (voice-to-voice live translation).
 
 ### Main features
@@ -20,63 +22,20 @@
 ### Solution architecture
 ![Solution architecture](https://github.com/aws-samples/aws-augmentability/raw/main/images/architecture.jpg)
 
-## Phase 1: Pre-deployment steps
 
- 1. Create a [Cognito Identity Pool] and take note of the *Cognito Identity pool ID* (https://docs.aws.amazon.com/cognito/latest/developerguide/tutorial-create-identity-pool.html)
- 2. Navigate to *Identity and Access Management (IAM)* > *Roles*, find the *Unauth_Role* associated with the Cognito Identity Pool you created at step 1, and add the following inline policy to the role (change the value for the "aws:RequestedRegion" key to your preferred AWS region): 
+## Option 1: building and deploying AWS AugmentAbility to the AWS Amplify Console
 
-.
-
-    {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Sid": "VisualEditor0",
-                "Effect": "Allow",
-                "Action": [
-                    "transcribe:StartStreamTranscriptionWebSocket",
-                    "translate:TranslateText",
-                    "comprehend:DetectDominantLanguage",
-                    "polly:SynthesizeSpeech",
-                    "rekognition:DetectText",
-                    "rekognition:DetectLabels",
-                    "textract:DetectDocumentText"
-                ],
-                "Resource": "*",
-                "Condition": {
-                    "StringEquals": {
-                        "aws:RequestedRegion": "eu-central-1"
-                    }
-                }
-            }
-        ] 
-    }
+Follow the steps described in [this blog post](https://aws.amazon.com/blogs/machine-learning/use-aws-ai-and-ml-services-to-foster-accessibility-and-inclusion-of-people-with-a-visual-or-communication-impairment/)
 
 
- 3. Clone the repository, create a file named "config.js" in the main folder, and paste the following code. Don't forget to replace INSERT_HERE_YOUR_COGNITO_IDENTITY_POOL with your *Cognito Identity pool ID*:
+## Option 2: building and deploying AWS AugmentAbility locally
 
-.
-
-    var appConfig={
-    'region' : 'eu-central-1',
-    'IdentityPoolId' : 'INSERT_HERE_YOUR_COGNITO_IDENTITY_POOL' }
- 
-
-## Phase 2, option 1: building and deploying locally
-
- 1. Complete Phase 1 (see above)
+ 1. Follow Step 1 and 2 (Create the Amazon Cognito user pool and identity pool, and grant permissions for accessing AWS AI services; Clone the GitHub repository and edit the configuration file) from [this blog post](https://aws.amazon.com/blogs/machine-learning/use-aws-ai-and-ml-services-to-foster-accessibility-and-inclusion-of-people-with-a-visual-or-communication-impairment/)
  2. run `npm install` (only first time)
  3. run `npm install --global local-web-server` (only first time)
  4. run `npm run-script build` (only first time, or in case of changes to JavaScript code)
  5. run `ws`
- 6. Open the index.html file in a browser
-
-
-## Phase 2, option 2: building and deploying to AWS Amplify Console
-
- 1. Complete Phase 1 (see above)
- 2. Deploy to the AWS Amplify Console (https://docs.aws.amazon.com/amplify/latest/userguide/getting-started.html). At Step 2a make sure to replace command `npm run build` with `npm run-script build`
-
+ 6. Before accessing the app for the first time, you have to set a new password for the user that has been automatically created during Step 1. You can find the link to the temporary login screen in the Outputs tab for the CloudFormation stack (field UserPoolLoginUrl). For this first sign-in, you use the user name you set up and the temporary password you received via email. After you set your new password, you’re ready to test the mobile web app by opening the index.html file in a browser.
 
 
 ## Acknowledgments and Credits
