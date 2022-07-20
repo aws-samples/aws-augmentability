@@ -33,7 +33,7 @@
     "local-web-server": "^3.0.7",
     "microphone-stream": "^5.0.1",
     "query-string": "^6.12.1",
-    "terser": "^5.10.0"
+    "terser": "^5.14.2"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
