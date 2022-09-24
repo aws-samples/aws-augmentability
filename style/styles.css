@@ -53,10 +53,9 @@ body {
 
 .container {
   background: #fff;
-  border-radius: 10px;
+  border-radius: 9px;
   display: inline-block;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-
 }
 
 body {
@@ -64,10 +63,22 @@ body {
   text-align: center;
 }
 
-textarea { 
-    font-size: 20px; 
-    resize: none;
+select {
+  font-size: 18px;
+}
 
+label {
+    font-size: 18px; 
+    font-weight: bold;
+}
+
+tab-text {
+    font-size: 30px; 
+}
+
+textarea { 
+    font-size: 22px; 
+    resize: none;
 }
 
 input[type="text"]
@@ -105,9 +116,6 @@ video
     font-size: 30px;
 }
 
-
-
-
 .card {
   background: #fff;
   border-radius: 10px;
@@ -124,22 +132,19 @@ video
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-
-
-
 .controlActions {
   position: fixed;
   bottom: 40px; right: 110px;
 }
 
-  .controlButtons {
+.controlButtons {
     position: absolute;
     width: 100%;
     bottom: 120%;
     text-align: center;
-  }
+}
 
-    .controlButtons a {
+.controlButtons a {
       display: block;
       width: 65px;
       height: 65px;
@@ -152,18 +157,123 @@ video
       position: relative;
       padding:0.3em;
       box-shadow: 0 0 5px 1px rgba(51, 51, 51, .3);
-    }
+      background-color: #0074d9;
+}
 
-      .controlButtons a:hover {
+.controlButtons a:hover {
         transform: scale(1.05);
-      }
+}
 
-      .controlButtons a:nth-child(1) {background-color: #ff5722; transition: opacity .2s ease-in-out .3s, transform .15s ease-in-out;}
-      .controlButtons a:nth-child(2) {background-color: #03a9f4; transition: opacity .2s ease-in-out .25s, transform .15s ease-in-out;}
+.controlButtons a:nth-child(1) {background-color: #ff5722; transition: opacity .2s ease-in-out .3s, transform .15s ease-in-out;}
+.controlButtons a:nth-child(2) {background-color: #03a9f4; transition: opacity .2s ease-in-out .25s, transform .15s ease-in-out;}
 
-      .controlActions a i {
+.controlActions a i {
         position: absolute;
         top: 50%; left: 50%;
         transform: translate(-50%, -50%);
-      }
+}
+
+.container-box {
+  background: #fff;
+  border-radius: 9px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  overflow: hidden;
+}
+
+.tab-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  position: relative;
+}
+
+.tab-list::before {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+  background-color: #aaa;
+  transition: .3s;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  transition: .3s;
+  opacity: 0.5;
+}
+
+.tab-toggle {
+  display: none;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-toggle:nth-child(1):checked ~ .tab-list .tab-item:nth-child(1),
+.tab-toggle:nth-child(2):checked ~ .tab-list .tab-item:nth-child(2) {
+  opacity: 1;
+}
+
+.tab-toggle:nth-child(2):checked ~ .tab-list::before {
+  transform: translateX(100%);
+}
+
+.tab-toggle:nth-child(3):checked ~ .tab-list::before {
+  transform: translateX(200%);
+}
+
+.tab-toggle:nth-child(1):checked ~ .tab-container .tab-content:nth-child(1),
+.tab-toggle:nth-child(2):checked ~ .tab-container .tab-content:nth-child(2) {
+  display: block;
+}
+
+.tab-trigger {
+  display: block;
+  padding: 10px 0;
+}
+
+.tab-container {
+  padding: 15px 15px;
+}
+
+#listening-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.listening-animation-subelement {
+    background: #08c18a;
+    bottom: 1px;
+    height: 30px;
+    width: 8px;
+    margin: 0px 4px;
+    border-radius: 5px;
+    animation: signal 0ms -500ms linear infinite alternate;
+}
+
+@keyframes signal {
+    0% {
+       opacity: .35;
+        height: 10px; 
+    }
+    100% {
+        opacity: 1;       
+        height: 60px;        
+    }
+}
+
+.listening-animation-subelement:nth-child(1)  { left: 1px; animation-duration: 475ms; }
+.listening-animation-subelement:nth-child(2)  { left: 15px; animation-duration: 435ms; }
+.listening-animation-subelement:nth-child(3)  { left: 29px; animation-duration: 405ms; }
+.listening-animation-subelement:nth-child(4)  { left: 43px; animation-duration: 455ms; }
+.listening-animation-subelement:nth-child(5)  { left: 57px; animation-duration: 400ms; }
+.listening-animation-subelement:nth-child(6)  { left: 71px; animation-duration: 425ms; }
+.listening-animation-subelement:nth-child(7)  { left: 85px; animation-duration: 445ms; }
 

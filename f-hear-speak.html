@@ -16,32 +16,37 @@
 
     <body>
         <div>
-            <a href="index-landing.html"  title="Back to previous page" style="color: #000000;">
-                <p style="text-align: left; font-size: 20px;"><i class="fas fa-arrow-left"></i></p>
-            </a>
 
+            <p style="text-align: left; font-size: 20px;">
+                <a href="index-landing.html"  title="Back to previous page" style="color: #000000;">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <b>&nbsp;&nbsp;&nbsp;Transcription & Text-To-Speech</b>
+            </p>
+
+            <!-- 
             <h2 style="text-align: center;">
                 <b>Live transcription and text-to-speech</b>
             </h2>
-
             <br />
+            -->
 
             <div class="language" style="text-align: center;">
-                <label><b>Select a language: </b></label>
+                <label>Select a language:</label>
                 <select id="language">
                     <option value="auto">Automatic language identification</option>
                     <option value="zh-CN">Chinese (Mandarin)</option>
                     <optgroup label="English">
                         <option value="en-AU">Australian English</option>
                         <option value="en-GB">British English</option>
-                        <option value="en-US">US English</option>
+                        <option selected value="en-US">US English</option>
                     </optgroup>
                     <optgroup label="French">
                         <option value="fr-FR">French</option>
                         <option value="fr-CA">Canadian French</option>
                     </optgroup>
                     <option value="de-DE">German</option>
-                    <option selected value="it-IT">Italian</option>
+                    <option value="it-IT">Italian</option>
                     <option value="ja-JP">Japanese</option>
                     <option value="ko-KR">Korean</option>
                     <option value="pt-BR">Portuguese (Brazilian)</option>
@@ -51,62 +56,80 @@
         </div>
         <br />
 
-        <div class="container">
-            <br />
 
-            <div id="transcription-div">
-                <h2 style="text-align: center;">
-                    Listen
-                </h2>
+        <div class="container-box">
+            <input type="radio" class="tab-toggle" name="tab-toggle" id="tab1" checked>
+            <input type="radio" class="tab-toggle" name="tab-toggle" id="tab2">
 
-                <div class="controlActions">
-                    <div class="controlButtons">
-                        <a href="#" id="start-button" title="Start listening"><i class="fas fa-microphone"></i></a>
-                        <a href="#" style="display: none" id="stop-button" title="Stop listening"><i class="fas fa-stop"></i></a>
+            <ul class="tab-list">
+              <li class="tab-item">
+                <label class="tab-trigger" for="tab1"><tab-text>Listen</tab-text></label>
+              </li>
+              <li class="tab-item">
+                <label class="tab-trigger" for="tab2"><tab-text>Speak</tab-text></label>
+              </li>
+            </ul>
+            
+            <div class="tab-container">
+
+                <div class="tab-content">
+                    <div id="transcription-div">
+
+                        <div class="controlActions">
+                            <div class="controlButtons">
+                                <a href="#" id="start-button" title="Start listening"><i class="fas fa-microphone"></i></a>
+                                <a href="#" style="display: none" id="stop-button" title="Stop listening"><i class="fas fa-stop"></i></a>
+                            </div>
+                        </div>
+
+                        <div id="error" class="isa_error"></div>
+
+                        <div id="listening-animation" style="display: none;">
+                          <div class="listening-animation-subelement"></div>
+                          <div class="listening-animation-subelement"></div>
+                          <div class="listening-animation-subelement"></div>
+                          <div class="listening-animation-subelement"></div>
+                          <div class="listening-animation-subelement"></div>
+                          <div class="listening-animation-subelement"></div>
+                          <div class="listening-animation-subelement"></div>
+                        </div>
+
+                        <textarea id="transcript" placeholder="The transcription will show up here" rows="10" readonly="readonly"></textarea>
+
+                        <div style="text-align: left;">
+                            <button id="reset-button" class="button-l button-secondary" title="Clear Transcription">
+                                Clear
+                            </button>
+                        </div>
+                        <br />
                     </div>
                 </div>
 
-                <div id="error" class="isa_error"></div>
+                <div class="tab-content">
+                    <div id="speak-container" >
+                        <br />
 
-                <textarea id="transcript" placeholder="The transcription will show up here" rows="10" readonly="readonly"></textarea>
+                        <div id="textToSynth-not-ready" style="text-align: center; display: none;">
+                            <p style="text-align: center;font-size: 22px">Please select a language</p>
+                        </div>
 
-                <div style="text-align: right;">
-                    <button id="reset-button" class="button-l button-secondary" title="Clear Transcription">
-                        Clear
-                    </button>
+                        <div id="textToSynth" style="text-align: center;">
+                            <input size="23" type="text" id="textEntry" placeholder="Enter here what you want to say" />
+                            <button class="button-l" id="play-button"><i class="fas fa-play"></i> Say it for me</button>
+
+                            <!-- <p id="result"></p>-->
+
+                            <br />
+                            <br />
+
+                            <audio style="display: none" id="audioPlayback" controls autoplay>
+                                <source id="audioSource" type="audio/mp3" src="" />
+                            </audio>
+                            <br />
+                        </div>
                 </div>
             </div>
-
-            <br />
-            <br />
-        </div>
-        <br />
-        <br />
-        <div id="speak-container" class="container">
-            <br />
-
-            <h2 style="text-align: center;">
-                Speak
-            </h2>
-
-            <div id="textToSynth" style="text-align: center;">
-                <input size="23" type="text" id="textEntry" placeholder="Enter here what you want to say" />
-                <button class="button-l" id="play-button"><i class="fas fa-play"></i> Say it for me</button>
-
-                <!-- <p id="result"></p>-->
-
-                <br />
-                <br />
-
-                <audio style="display: none" id="audioPlayback" controls autoplay>
-                    <source id="audioSource" type="audio/mp3" src="" />
-                </audio>
-            </div>
-
-            <br />
-            <br />
-            <br />
-            <br />
+          </div>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

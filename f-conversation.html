@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Live Conversation Translation</title>
+        <title>Real-time Conversation Translation</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script src="https://kit.fontawesome.com/692060e681.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="style/shoelace.css" />
@@ -15,19 +15,25 @@
     </head>
 
     <body>
-        <a href="index-landing.html"  title="Back to previous page" style="color: #000000;">
-            <p style="text-align: left; font-size: 20px;"><i class="fas fa-arrow-left"></i></p>
-        </a>
-
+        
+        <p style="text-align: left; font-size: 20px;">
+            <a href="index-landing.html"  title="Back to previous page" style="color: #000000;">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Conversation Translation</b>
+        </p>
+        
         <div class="container">
             <br />
 
+            <!-- 
             <h2 style="text-align: center;">
                 <b>Real-time conversation translation</b>
             </h2>
+            -->
 
             <div class="language" style="text-align: center;">
-                <div id="selector1" role="application" style="float: left; width: 40%; margin-right: 2%;">
+                <div id="selector1" role="application" style="float: left; width: 49%; margin-right: 2%;">
                     <div id="select" class="demo-section k-content">
                         <label style="margin-top: 1em;"><b>From</b></label>
 
@@ -52,17 +58,7 @@
                     </div>
                 </div>
 
-                <div id="selector2" role="application" style="float: left; width: 14%; margin-right: 2%;">
-                    <div id="select" class="demo-section k-content">
-                        <label style="margin-top: 1em; color: white;">Switch</label>
-
-                        <button id="switch-language-button" class="button-l" title="Switch languages">
-                            <i class="fas fa-sync-alt"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div id="selector3" role="application" style="float: left; width: 40%; margin-right: 0;">
+                <div id="selector2" role="application" style="float: left; width: 49%; margin-right: 0;">
                     <div id="select" class="demo-section k-content">
                         <label style="margin-top: 1em;"><b>To</b></label>
 
@@ -95,18 +91,30 @@
                 <div class="controlButtons">
                     <a href="#" id="start-conversation-button" title="Start listening"><i class="fas fa-microphone"></i></a>
                     <a href="#" style="display: none" id="stop-conversation-button" title="Stop & Read translation out loud"><i class="fas fa-stop"></i></a>
+                    <a href="#" id="switch-language-button" title="Switch languages"><i class="fas fa-sync-alt"></i></a>
                 </div>
             </div>
 
             <div id="error" class="isa_error"></div>
+            
+            <p></p>
+            <div id="listening-animation" style="display: none;">
+              <div class="listening-animation-subelement"></div>
+              <div class="listening-animation-subelement"></div>
+              <div class="listening-animation-subelement"></div>
+              <div class="listening-animation-subelement"></div>
+              <div class="listening-animation-subelement"></div>
+              <div class="listening-animation-subelement"></div>
+              <div class="listening-animation-subelement"></div>
+            </div>
 
             <textarea id="transcript" placeholder="The transcription will show up here" rows="10" readonly="readonly"></textarea>
 
-            <textarea id="translate" placeholder="The translation will show up here" rows="10" readonly="readonly"></textarea>
+            <textarea id="translate" placeholder="The translation will show up here and will be automatically read out loud" rows="10" readonly="readonly"></textarea>
 
             <br />
 
-            <div style="text-align: right;">
+            <div style="text-align: left;">
                 <button id="reset-button" class="button-l button-secondary" title="Clear Transcription and Translation">
                     Clear
                 </button>
@@ -123,9 +131,6 @@
                 </audio>
             </div>
 
-            <br />
-            <br />
-            <br />
             <br />
         </div>
 

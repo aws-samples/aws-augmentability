@@ -233,8 +233,8 @@ Modifications: webcam-app background-image removed; cameraFlip, cameraControls a
   width: 60px;
   height: 50px;
   position: fixed;
-  bottom: 50px; 
-  left: 20px;
+  top: 100px; 
+  right: 20px;
   cursor: pointer;
   background-color: black;
   border-radius: 10px;
@@ -254,15 +254,14 @@ Modifications: webcam-app background-image removed; cameraFlip, cameraControls a
 
 
 .material-icons{
-  width: 100px;
   font-size: 50px !important;
   color: white;
-  width: 200px;
-  height: 200px;
+  width: 170px;
+  height: 170px;
   background-color: black;
   border-radius: 50%;
-  padding-top: 75px;
-  margin: 0 10px;
+  padding-top: 60px;
+  margin: 60px 10px;
 }
 
 .flash{ 
