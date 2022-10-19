@@ -63,7 +63,7 @@ amazon-archives/amazon-transcribe-websocket-static * (Apache 2.0 License), zinim
 
 ### Notices
 
-This sample is provided for demonstration purposes only. Customers are responsible for making their own independent assessment of the information in this document and any use of AWS products or services, each of which is provided "as is" without warranty of any kind, whether express or implied.
+This sample is provided for demonstration purposes only; it is not meant for production deployments as is. Customers are responsible for making their own independent assessment of the information in this document and any use of AWS products or services, each of which is provided "as is" without warranty of any kind, whether express or implied.
 
 AWS AugmentAbility is licensed under Apache License Version 2.0.
 
