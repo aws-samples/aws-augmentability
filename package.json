@@ -28,7 +28,7 @@
     "@aws-sdk/client-cognito-identity": "^3.223.0",
     "@aws-sdk/eventstream-marshaller": "^3.120.0",
     "@aws-sdk/util-utf8-node": "^3.208.0",
-    "aws-sdk": "^2.1267.0",
+    "aws-sdk": "^2.1354.0",
     "browserify": "^16.5.2",
     "local-web-server": "^3.0.7",
     "microphone-stream": "^5.3.1",
