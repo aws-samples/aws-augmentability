@@ -1,6 +1,6 @@
 /*
 Original Copyright (c) 2020 Benson Ruan
-Modifications: webcam-app background-image removed; cameraFlip, cameraControls and material-icons properties edited. Added controlActions, controlButtons and container.
+Modifications: webcam-app background-image removed; cameraFlip, uploadImage,display-image, my-label, cameraControls and material-icons properties edited. Added controlActions, controlButtons and container.
 */ 
 
 #webcam-app {
@@ -239,7 +239,18 @@ Modifications: webcam-app background-image removed; cameraFlip, cameraControls a
   background-color: black;
   border-radius: 10px;
   padding-right: 70px;
+}
 
+ #imageUpload {
+  width: 60px;
+  height: 50px;
+  position: fixed;
+  top: 100px; 
+  left: 20px;
+  cursor: pointer;
+  background-color: black;
+  border-radius: 10px;
+  padding-right: 70px;
 }
 
 .cameraControls {
@@ -364,3 +375,20 @@ Modifications: webcam-app background-image removed; cameraFlip, cameraControls a
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   z-index: 99999999;
 }
+
+#display-image{
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.my-label {
+  color: white;
+  padding: 8px;
+  font-family: Arial;
+}
+.upload {background-color: #04AA6D;} /* Green */
+
