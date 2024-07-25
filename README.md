@@ -35,7 +35,9 @@
 * 3 new Amazon Polly Neural TTS voices: Canadian French, German, US Spanish (Jun 2022)
 * Improved UX for ASR and TTS features (Sep 2022)
 * 3 new Amazon Polly Neural TTS voices: Hindi, Indian English, Mandarin Chinese (Sep 2022)
-
+* Various fixes and dependency upgrades (2023)
+* Hindi support in live transcription, text-to-speech and conversation translation features; Amazon Polly integration enhancements (July 2024)
+* Image upload support in text extraction from documents feature (July 2024)
 
 ### Deployment options
 
