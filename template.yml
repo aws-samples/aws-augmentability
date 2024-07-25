@@ -3,8 +3,8 @@ Description: AugmentAbility - Amazon Cognito stack
 Parameters:
   Region:
     Type: String
-    Description: AWS region identifier (us-east-1, us-west-2, ap-northeast-2, ap-southeast-1, ap-southeast-2, ca-central-1, eu-central-1, eu-west-1, eu-west-2)
-    AllowedValues : ["us-east-1", "us-west-2", "ap-northeast-2", "ap-southeast-1", "ap-southeast-2", "ca-central-1", "eu-central-1", "eu-west-1", "eu-west-2"]
+    Description: AWS region identifier (us-east-2, us-east-1, us-west-1, us-west-2, ap-south-1, ap-northeast-2, ap-southeast-1, ap-southeast-2, ca-central-1, eu-central-1, eu-west-1, eu-west-2)
+    AllowedValues : ["us-east-2", "us-east-1", "us-west-1", "us-west-2", "ap-south-1", "ap-northeast-2", "ap-southeast-1", "ap-southeast-2", "ca-central-1", "eu-central-1", "eu-west-1", "eu-west-2"]
   Username:
     Type: String
     Description: Username to be used for signing-in into the web application (e.g., user). The username must be a UTF-8 string between 1 and 128 characters.
