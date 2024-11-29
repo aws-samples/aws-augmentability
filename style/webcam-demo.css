@@ -233,7 +233,7 @@ Modifications: webcam-app background-image removed; cameraFlip, uploadImage,disp
   width: 60px;
   height: 50px;
   position: fixed;
-  top: 100px; 
+  top: 5px; 
   right: 20px;
   cursor: pointer;
   background-color: black;
@@ -242,11 +242,11 @@ Modifications: webcam-app background-image removed; cameraFlip, uploadImage,disp
 }
 
  #imageUpload {
-  width: 60px;
+  width: 50px;
   height: 50px;
   position: fixed;
-  top: 100px; 
-  left: 20px;
+  top: 5px; 
+  right: 125px;
   cursor: pointer;
   background-color: black;
   border-radius: 10px;
