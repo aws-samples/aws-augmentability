@@ -1,6 +1,6 @@
 ## AWS AugmentAbility
 
-***This is an experimental fork of the [AWS AugmentAbility project](https://github.com/aws-samples/aws-augmentability) in which some of the vision capabilities have been re-implemented to leverage multi-modal Generative AI models through Amazon Bedrock instead of Amazon Rekognition.***
+***This is an experimental fork of the [AWS AugmentAbility project](https://aws.amazon.com/blogs/machine-learning/use-aws-ai-and-ml-services-to-foster-accessibility-and-inclusion-of-people-with-a-visual-or-communication-disability/) in which some of the vision capabilities have been re-implemented to leverage multi-modal Generative AI models through Amazon Bedrock instead of Amazon Rekognition.***
 
 **AWS AugmentAbility** is a mobile web app which showcases 5 AWS AI/ML services (Amazon Transcribe, Amazon Translate, Amazon Polly, **Amazon Bedrock** and Amazon Textract) and, at the same time, provides features that may benefit people with a visual or communication impairment, including difficulties in reading written text (text recognition), hearing (live transcription), speaking (text-to-speech), or having a conversation in a foreign language (voice-to-voice live translation).
 
