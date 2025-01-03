@@ -1,6 +1,6 @@
 /*
 Original Copyright (c) 2020 Benson Ruan
-Modifications: webcam-app background-image removed; cameraFlip, uploadImage,display-image, my-label, cameraControls and material-icons properties edited. Added controlActions, controlButtons and container.
+Modifications: webcam-app background-image removed; cameraFlip, uploadImage,display-image, my-label, cameraControls and material-icons properties edited. Added controlActions, controlButtons, container, listening-animation.
 */ 
 
 #webcam-app {
@@ -391,4 +391,53 @@ Modifications: webcam-app background-image removed; cameraFlip, uploadImage,disp
   font-family: Arial;
 }
 .upload {background-color: #04AA6D;} /* Green */
+
+
+
+#listening-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+#listening-animation-visual-conversation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);  
+  z-index: 99999;  
+}
+.listening-animation-subelement {
+    background: #08c18a;
+    bottom: 1px;
+    height: 30px;
+    width: 8px;
+    margin: 0px 4px;
+    border-radius: 5px;
+    animation: signal 0ms -500ms linear infinite alternate;
+}
+
+@keyframes signal {
+    0% {
+       opacity: .35;
+        height: 10px; 
+    }
+    100% {
+        opacity: 1;       
+        height: 60px;        
+    }
+}
+
+.listening-animation-subelement:nth-child(1)  { left: 1px; animation-duration: 475ms; }
+.listening-animation-subelement:nth-child(2)  { left: 15px; animation-duration: 435ms; }
+.listening-animation-subelement:nth-child(3)  { left: 29px; animation-duration: 405ms; }
+.listening-animation-subelement:nth-child(4)  { left: 43px; animation-duration: 455ms; }
+.listening-animation-subelement:nth-child(5)  { left: 57px; animation-duration: 400ms; }
+.listening-animation-subelement:nth-child(6)  { left: 71px; animation-duration: 425ms; }
+.listening-animation-subelement:nth-child(7)  { left: 85px; animation-duration: 445ms; }
 

@@ -28,18 +28,57 @@
 
             <br />
 
-            <p>After selecting a language below, get ready to take a picture and the app will describe the objects around you. Don't forget to turn up the volume!</p>
 
-            <select class="selector" id="language" onchange="location = this.value;">
+            <p>After selecting a language below, get ready to take a picture and the app will describe the objects around you. If you enable <b>Q&A mode</b>, the app will be able to answer your questions based on what's around. Don't forget to turn up the volume!</p>
+
+            <label class="form-switch">
+                Q&A mode
+              <input type="checkbox" id="conversation" >
+              <i></i>
+            </label>
+
+             <br />            <br />
+
+            <select class="selector" id="language" onchange="var myLoc = document.getElementById('conversation').checked ? 'f-see-conversation-objects.html?language=' + this.value : 'f-see-objects.html?language=' + this.value; location = myLoc;">
                 <option selected>Select a language</option>
-                <option value="f-see-objects.html?language=arb">Arabic</option>
-                <option value="f-see-objects.html?language=en">English</option>
-                <option value="f-see-objects.html?language=fr">French</option>
-                <option value="f-see-objects.html?language=de">German</option>
-                <option value="f-see-objects.html?language=it">Italian</option>
-                <option value="f-see-objects.html?language=pt">Portuguese</option>
-                <option value="f-see-objects.html?language=ru">Russian</option>
-                <option value="f-see-objects.html?language=es">Spanish</option>
+                <option value="ar-AE">Arabic (Gulf)</option>
+                <option value="ca-ES">Catalan</option>
+                <option value="zh-CN">Chinese (Mandarin, Simplified)</option>
+                <option value="cs-CZ">Czech</option>
+                <option value="da-DK">Danish</option>
+                <optgroup label="English">
+                    <option value="en-AU">Australian English</option>
+                    <option value="en-GB">British English</option>
+                    <option value="en-IN">Indian English</option>
+                    <option value="en-NZ">New Zealand English</option>
+                    <option value="en-ZA">South African English</option>
+                    <option value="en-US">US English</option>
+                </optgroup>
+                <option value="fi-FI">Finnish</option>
+                <optgroup label="French">
+                    <option value="fr-FR">French</option>
+                    <option value="fr-CA">Canadian French</option>
+                </optgroup>
+                <optgroup label="German">
+                    <option value="de-DE">German</option>
+                    <option value="de-CH">Swiss German</option>
+                </optgroup>
+                <option value="hi-IN">Hindi</option>
+                <option value="it-IT">Italian</option>
+                <option value="ja-JP">Japanese</option>
+                <option value="ko-KR">Korean</option>
+                <option value="pl-PL">Polish</option>
+                <optgroup label="Portuguese">
+                    <option value="pt-PT">Portuguese</option>
+                    <option value="pt-BR">Brazilian Portuguese</option>
+                </optgroup>
+                <option value="ro-RO">Romanian</option>
+                <option value="ru-RU">Russian</option>
+                <optgroup label="Spanish">
+                    <option value="es-ES">Spanish</option>
+                    <option value="es-US">US Spanish</option>
+                </optgroup>
+                <option value="sv-SE">Swedish</option>
             </select>
 
             <br />

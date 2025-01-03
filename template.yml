@@ -104,8 +104,7 @@ Resources:
                   - "translate:TranslateText"
                   - "comprehend:DetectDominantLanguage"
                   - "polly:SynthesizeSpeech"
-                  - "rekognition:DetectText"
-                  - "rekognition:DetectLabels"
+                  - "bedrock:InvokeModel"
                   - "textract:DetectDocumentText"
                 Resource: "*"
                 Condition:
