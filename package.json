@@ -25,7 +25,7 @@
     ]
   },
   "dependencies": {
-    "@aws-sdk/client-cognito-identity": "^3.621.0",
+    "@aws-sdk/client-cognito-identity": "^3.1004.0",
     "@aws-sdk/eventstream-marshaller": "^3.120.0",
     "@aws-sdk/util-utf8-node": "^3.259.0",
     "aws-sdk": "^2.1665.0",
